@@ -1,0 +1,14 @@
+services:
+  oracle:
+    image: gvenzl/oracle-free:22.2-faststart
+    ports:
+      - "1521:1521"
+    environment:
+      ORACLE_PASSWORD: hibernate_orm_test
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+      start_interval: 5s
